@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainTest {
     @Test
@@ -89,4 +90,12 @@ public class MainTest {
         long res = Main.factorielleN(scanner);
         assertEquals(120L, res);
     }
+
+    @Test
+    public void itTableauTest(){
+        double[] res = Main.itTableau();
+        assertTrue(Arrays.equals(res, new double[]{5.8, 6.4, 5.3}));
+    }
+
+
 }

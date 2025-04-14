@@ -280,5 +280,53 @@ public class Main {
         }
     }
 
+    public static double[] itTableau(){
+        double[] nombres = {5.8, 6.4, 5.3};
+        Arrays.stream(nombres).forEach(System.out::println);
+        return nombres;
+    }
+
+    public static int rechSeq1(){
+        int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+        int v = 7;
+        for (int i = 0; i < tableau.length; i++) {
+            if (v == tableau[i]) {
+
+                return i;
+            }
+        }
+    }
+
+    public static int rechSeq2(){
+        int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+        int v = 7;
+        int i = 0;
+        while (i < tableau.length){
+            if (v == tableau[i]) {
+
+                return i;
+            }
+            i++;
+        }
+        return -1;
+
+    }
+
+    public static int rechSeq3(){
+        int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+        int v = 7;
+        int i = 0;
+        do {
+            if (v == tableau[i]) {
+
+                return i;
+            }
+            i++;
+        } while (i < tableau.length);
+        return -1;
+    }
+
+
+
 
 }
