@@ -1,6 +1,9 @@
 package fr.javacourse;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -16,13 +19,17 @@ public class Main {
         short enfan = scanner.nextShort();
         int salmensu = scanner.nextInt();
         char recalc = scanner.next().charAt(0);
-        Object entiersaisie = scanner.nextInt();
+        scanner.nextLine();
+
 
         verifMaj(name, year);
         voyeCons(charact);
         assezArg(solde, article);
         tauxPart(matrimonsaisie, enfan, salmensu, recalc);
-        somEntier(entiersaisie);
+        System.out.println(somEntier(scanner));
+        System.out.println(fuzzBuzz(scanner));
+        System.out.println(factorielleN(scanner));
+
 
         scanner.close();
     }
@@ -181,22 +188,95 @@ public class Main {
         return abonne;
     }
 
-    public static int somEntier(Object entiersaisie) {
-        if (entiersaisie == null ||
-                (!(entiersaisie instanceof Integer) && !(entiersaisie instanceof Character)) ||
-                (entiersaisie instanceof Integer && (Integer) entiersaisie < 0) ||
-                (entiersaisie instanceof Character && (Character) entiersaisie != 'Q')) {
-            throw new IllegalArgumentException("Saisie invalide");
-        } else {
-            int counter = 0;
-            if (entiersaisie instanceof Integer) {
+    public static int somEntier(Scanner scanner) {
+
+        int counter = 0;
 
 
-                counter += entiersaisie;
-
-            } else {
+        while (true) {
+            System.out.println("Enter a number or 'Q' to quit: ");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("Q")) {
                 return counter;
+
+
             }
+            try {
+                int value = Integer.parseInt(input);
+                if (value < 0) {
+                    throw new IllegalArgumentException("Negative numbers not allowed");
+                }
+                counter += value;
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid input: " + input);
+            }
+        }
+    }
+
+    public static ArrayList<String> fuzzBuzz(Scanner scanner) {
+
+        ArrayList<String> numbers = new ArrayList<>();
+        try {
+            System.out.println("Enter a number to find FuzzBuzz: ");
+            String input = scanner.nextLine();
+            int n = Integer.parseInt(input);
+            if (n < 0) {
+                throw new IllegalArgumentException("Input must be non-negative");
+            }
+            for (int i = 0; i < n; i++) {
+                if ((i + 1) % 3 == 0 && (i + 1) % 5 == 0) {
+                    numbers.add("FuzzBuzz");
+                } else if ((i + 1) % 5 == 0) {
+                    numbers.add("Buzz");
+                } else if ((i + 1) % 3 == 0) {
+                    numbers.add("Fuzz");
+                } else {
+                    numbers.add(String.valueOf(i + 1));
+                }
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Wrong type of value");
+            return new ArrayList<>();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Input must be non-negative");
+            return new ArrayList<>();
+        }
+
+        numbers.forEach(System.out::println);
+        return numbers;
+
+
+    }
+
+    public static long factorielleN(Scanner scanner) {
+        long res = 1L;
+
+
+        try {
+            int input = scanner.nextInt();
+            if (input < 0) {
+                throw new IllegalArgumentException("Negative values are not allowed");
+            }
+            ArrayList<Integer> elements = new ArrayList<>();
+            int counter = 0;
+            for (int i = 0; i < input; i++) {
+                elements.add(input - counter);
+                counter++;
+            }
+            final long[] resArr = {res};
+            elements.forEach(e -> {
+                resArr[0] *= e;
+            });
+            res = resArr[0];
+            System.out.println(res);
+
+            return res;
+        } catch (InputMismatchException e) {
+            System.out.println("Wrong type of value");
+            return res;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Negative value is not allowed");
+            return res;
         }
     }
 
