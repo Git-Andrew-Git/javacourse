@@ -1,10 +1,7 @@
 package fr.javacourse;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -280,13 +277,13 @@ public class Main {
         }
     }
 
-    public static double[] itTableau(){
+    public static double[] itTableau() {
         double[] nombres = {5.8, 6.4, 5.3};
         Arrays.stream(nombres).forEach(System.out::println);
         return nombres;
     }
 
-    public static int rechSeq1(int v, int[] tableau){
+    public static int rechSeq1(int v, int[] tableau) {
         /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
         int v = 7;*/
         for (int i = 0; i < tableau.length; i++) {
@@ -297,11 +294,11 @@ public class Main {
         }
     }
 
-    public static int rechSeq2(int v, int[] tableau){
+    public static int rechSeq2(int v, int[] tableau) {
         /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
         int v = 7;*/
         int i = 0;
-        while (i < tableau.length){
+        while (i < tableau.length) {
             if (v == tableau[i]) {
 
                 return i;
@@ -312,7 +309,7 @@ public class Main {
 
     }
 
-    public static int rechSeq3(int v, int[] tableau){
+    public static int rechSeq3(int v, int[] tableau) {
         /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
         int v = 7;*/
         int i = 0;
@@ -326,7 +323,7 @@ public class Main {
         return -1;
     }
 
-    public static int somEntre1(int[] tableau, int i, int j){
+    public static int somEntre1(int[] tableau, int i, int j) {
         int count = 0;
         for (int k = i; k < j; k++) {
             count += tableau[k];
@@ -334,13 +331,13 @@ public class Main {
         return count;
     }
 
-    public static int somEntre2(int[] tableau, int i, int j){
+    public static int somEntre2(int[] tableau, int i, int j) {
 
         return Arrays.stream(tableau, i, j).sum();
     }
 
-    public static int[] indDanTab1(int[] tableau){
-        if (tableau.length == 0) return new int[] {0, 0};
+    public static int[] indDanTab1(int[] tableau) {
+        if (tableau.length == 0) return new int[]{0, 0};
         int max = tableau[0];
         int min = tableau[0];
         for (int i = 0; i < tableau.length; i++) {
@@ -356,14 +353,14 @@ public class Main {
         return newArr;
     }
 
-    public static int[] indDanTab2(int[] tableau){
+    public static int[] indDanTab2(int[] tableau) {
         int min = Arrays.stream(tableau).min().getAsInt();
         int max = Arrays.stream(tableau).max().getAsInt();
-        return new int[] {min, max};
+        return new int[]{min, max};
     }
 
-    public static boolean echanVal(int[] tableau, int i, int j){
-        if (i>tableau.length || j>tableau.length || tableau.length==0) return false;
+    public static boolean echanVal(int[] tableau, int i, int j) {
+        if (i > tableau.length || j > tableau.length || tableau.length == 0) return false;
         int k = tableau[i];
         int l = tableau[j];
         tableau[i] = l;
@@ -371,23 +368,23 @@ public class Main {
         return true;
     }
 
-    public static  float moyenne(int[] tableau){
+    public static float moyenne(int[] tableau) {
         if (tableau.length == 0) {
             return 0.0f;
         }
         int sum = 0;
-        for(int elem: tableau){
+        for (int elem : tableau) {
             sum += elem;
         }
-        float moyen = sum/tableau.length;
+        float moyen = sum / tableau.length;
         return moyen;
     }
 
-    public static float moyenne1(int[] tableau){
+    public static float moyenne1(int[] tableau) {
         return (float) Arrays.stream(tableau).average().orElse(0.0);
     }
 
-    public static void manipTabl(Scanner scanner){
+    public static void manipTabl(Scanner scanner) {
         try {
             System.out.println("Veuillez choisir un nombre de valeurs à saisir :");
             int taille = scanner.nextInt();
@@ -400,7 +397,7 @@ public class Main {
             System.out.println("----");
             int[] tableau = new int[taille];
             for (int i = 1; i <= taille; i++) {
-                int j = i-1;
+                int j = i - 1;
                 System.out.printf("Veuillez saisir le nombre %d :\n", i);
                 tableau[j] = scanner.nextInt();
             }
@@ -418,24 +415,24 @@ public class Main {
             System.out.printf("Max = %d\n", minmax[1]);
             float moy = moyenne(tableau);
             System.out.printf("Moyenne = %f\n", moy);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println("Taille negative");
         }
     }
 
-    public static int[] invert(int[] tableau){
+    public static int[] invert(int[] tableau) {
         if (tableau.length == 0) {
             return tableau;
         }
         int[] tableaunew = new int[tableau.length];
         for (int i = 0; i < tableau.length; i++) {
-            tableaunew[tableau.length-1-i] = tableau[i];
+            tableaunew[tableau.length - 1 - i] = tableau[i];
         }
         return tableaunew;
     }
 
-    public static int som2Dtableau(int[][] tableau, int width, int height){
-        int sum =0;
+    public static int som2Dtableau(int[][] tableau, int width, int height) {
+        int sum = 0;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 sum += tableau[i][j];
@@ -444,67 +441,157 @@ public class Main {
         return sum;
     }
 
-    public static int sumMatrixDiag(int[][] tableau, int width, int height, int diagonalType){
+    public static int sumMatrixDiag(int[][] tableau, int width, int height, int diagonalType) {
         int sum = 0;
-        if (tableau.length > 0 && tableau[0].length == tableau.length ) {
+        if (tableau.length > 0 && tableau[0].length == tableau.length) {
             return sum;
         }
         for (int i = 0; i < tableau.length; i++) {
-            sum += switch (diagonalType){
+            sum += switch (diagonalType) {
                 case 1 -> tableau[i][i];
-                case 2 -> tableau[i][tableau.length-1-i];
+                case 2 -> tableau[i][tableau.length - 1 - i];
                 default -> tableau[i][i];
             };
 
 
         }
         return sum;
-        
+
     }
 
-    public static void triangChar1(Scanner scanner){
+    public static void triangChar1(Scanner scanner) {
         int n = scanner.nextInt();
         int i = 0;
         char e = '*';
-        while (i < n){
-            System.out.println(e*(i+1));
+        while (i < n) {
+            System.out.println(e * (i + 1));
             i++;
         }
     }
 
-    public static void triangChar2(Scanner scanner){
+    public static void triangChar2(Scanner scanner) {
         int n = scanner.nextInt();
         int i = 1;
         char e = '*';
         int j = n;
 
-        while (i == n){
-            System.out.println(e*i);
+        while (i == n) {
+            System.out.println(e * i);
             i++;
 
         }
-        while (j == 0){
-            System.out.println(e*(n-i));
+        while (j == 0) {
+            System.out.println(e * (n - i));
             j--;
 
         }
     }
 
-    public static boolean plusouMois(Scanner scanner, int e){
+    public static boolean plusouMois1(Scanner scanner, int k) {
+        boolean res = false;
         int[] tableau = new int[100];
+        Random r = new Random();
+        int rn = r.nextInt(99) + 1;
         for (int i = 0; i < tableau.length; i++) {
-            tableau[i] = i+1;
+            tableau[i] = i + 1;
         }
-        System.out.printf("Vous avez %d d'essais pour découvrir un entier secret\n", e);
+        System.out.printf("Vous avez %u u'essais pour découvrir un entier secret\n", k);
+//       N° u'essais
         int f = 1;
-        do{
-        System.out.printf("%d essais restant, entrez votre entier entre 1 et 100 :", e-f);
-        int n = scanner.nextInt();
-            if (n > ) {
+//        lower boundary
+        int d = 1;
+//        upper boundary
+        int u = tableau.length;
+        do {
+            System.out.printf("%u essais restant, entrez votre entier entre 1 et 100 :", k - f);
+            int n = scanner.nextInt();
+            try {
+                if (n < d || n > u) {
+                    throw new IllegalArgumentException("Out of boundaries");
+                }
+                if (n == rn) {
+                    System.out.println("YOU WON!");
+                    return res = true;
+                } else if (n > tableau.length / 2 && rn > tableau.length / 2) {
+                    d += u/2;
+                    System.out.printf("you are in the correct half of the numbers in between: %f and %f\n", d, u);
+//                tableau = Arrays.copyOf(tableau, tableau.length/2);
+                } else if (n <= tableau.length / 2 && rn <= tableau.length / 2) {
+                    u -= (u+1-d)/2;
+                    System.out.printf("you are in the correct half of the numbers in between: %f and %f\n", d, u);
+//                tableau = Arrays.copyOfRange(tableau, tableau.length/2, tableau.length);
+                } else {
+                    if (n > tableau.length / 2) {
+                        d += u/2;
+                        System.out.printf("you are in the wrong half of the numbers in between: %f and %f\n", d, u);
+//                    tableau = Arrays.stream(tableau).limit(tableau.length/2).toArray();
+                    } else {
+                        u -= (u+1-d)/2;
+                        System.out.printf("you are in the wrong half of the numbers in between: %f and %f\n", d, u);
+//                    tableau = Arrays.stream(tableau).skip(tableau.length/2).toArray();
+                    }
+                }
 
+            } catch (IllegalArgumentException e) {
+                System.out.println("Out of boundaries");
             }
 
+        k++;
+        } while (k == f);
+        return res;
+    }
 
-        } while (e == f);
+    public static boolean plusouMois2(Scanner scanner, int k) {
+        boolean res = false;
+        int[] tableau = new int[100];
+        Random r = new Random();
+        int rn = r.nextInt(99) + 1;
+        for (int i = 0; i < tableau.length; i++) {
+            tableau[i] = i + 1;
+        }
+        System.out.printf("Vous avez %u u'essais pour découvrir un entier secret\n", k);
+//       N° u'essais
+        int f = 1;
+//        lower boundary
+        int d = 1;
+//        upper boundary
+        int u = tableau.length;
+        do {
+            System.out.printf("%u essais restant, entrez votre entier entre 1 et 100 :", k - f);
+            int n = scanner.nextInt();
+            try {
+                if (n < d || n > u) {
+                    throw new IllegalArgumentException("Out of boundaries");
+                }
+                if (n == rn) {
+                    System.out.println("YOU WON!");
+                    return res = true;
+                } else if (n > tableau.length / 2 && rn > tableau.length / 2) {
+                    d += u/2;
+                    System.out.printf("you are in the correct half of the numbers in between: %f and %f\n", d, u);
+//                tableau = Arrays.copyOf(tableau, tableau.length/2);
+                } else if (n <= tableau.length / 2 && rn <= tableau.length / 2) {
+                    u -= (u+1-d)/2;
+                    System.out.printf("you are in the correct half of the numbers in between: %f and %f\n", d, u);
+//                tableau = Arrays.copyOfRange(tableau, tableau.length/2, tableau.length);
+                } else {
+                    if (n > tableau.length / 2) {
+                        d += u/2;
+                        System.out.printf("you are in the wrong half of the numbers in between: %f and %f\n", d, u);
+//                    tableau = Arrays.stream(tableau).limit(tableau.length/2).toArray();
+                    } else {
+                        u -= (u+1-d)/2;
+                        System.out.printf("you are in the wrong half of the numbers in between: %f and %f\n", d, u);
+//                    tableau = Arrays.stream(tableau).skip(tableau.length/2).toArray();
+                    }
+                }
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Out of boundaries");
+            }
+
+            k++;
+        } while (k == f);
+        return res;
     }
 }
