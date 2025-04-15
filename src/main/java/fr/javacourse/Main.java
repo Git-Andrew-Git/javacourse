@@ -286,9 +286,9 @@ public class Main {
         return nombres;
     }
 
-    public static int rechSeq1(){
-        int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
-        int v = 7;
+    public static int rechSeq1(int v, int[] tableau){
+        /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+        int v = 7;*/
         for (int i = 0; i < tableau.length; i++) {
             if (v == tableau[i]) {
 
@@ -297,9 +297,9 @@ public class Main {
         }
     }
 
-    public static int rechSeq2(){
-        int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
-        int v = 7;
+    public static int rechSeq2(int v, int[] tableau){
+        /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+        int v = 7;*/
         int i = 0;
         while (i < tableau.length){
             if (v == tableau[i]) {
@@ -312,9 +312,9 @@ public class Main {
 
     }
 
-    public static int rechSeq3(){
-        int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
-        int v = 7;
+    public static int rechSeq3(int v, int[] tableau){
+        /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+        int v = 7;*/
         int i = 0;
         do {
             if (v == tableau[i]) {
@@ -326,7 +326,87 @@ public class Main {
         return -1;
     }
 
+    public static int somEntre1(int[] tableau, int i, int j){
+        int count = 0;
+        for (int k = i; k < j; k++) {
+            count += tableau[k];
+        }
+        return count;
+    }
 
+    public static int somEntre2(int[] tableau, int i, int j){
 
+        return Arrays.stream(tableau, i, j).sum();
+    }
 
+    public static int[] indDanTab1(int[] tableau){
+        if (tableau.length == 0) return new int[] {0, 0};
+        int max = tableau[0];
+        int min = tableau[0];
+        for (int i = 0; i < tableau.length; i++) {
+            if (min >= tableau[i]) {
+                min = tableau[i];
+            }
+            if (max <= tableau[i]) {
+                max = tableau[i];
+            }
+        }
+
+        int[] newArr = {min, max};
+        return newArr;
+    }
+
+    public static int[] indDanTab2(int[] tableau){
+        int min = Arrays.stream(tableau).min().getAsInt();
+        int max = Arrays.stream(tableau).max().getAsInt();
+        return new int[] {min, max};
+    }
+
+    public static boolean echanVal(int[] tableau, int i, int j){
+        if (i>tableau.length || j>tableau.length || tableau.length==0) return false;
+        int k = tableau[i];
+        int l = tableau[j];
+        tableau[i] = l;
+        tableau[j] = j;
+        return true;
+    }
+
+    public static  float moyenne(int[] tableau){
+        if (tableau.length == 0) {
+            return 0.0f;
+        }
+        int sum = 0;
+        for(int elem: tableau){
+            sum += elem;
+        }
+        float moyen = sum/tableau.length;
+        return moyen;
+    }
+
+    public static float moyenne1(int[] tableau){
+        return (float) Arrays.stream(tableau).average().orElse(0.0);
+    }
+
+    public static void manipTabl(Scanner scanner){
+        try {
+            if (taille < 0) {
+                throw new IllegalArgumentException("Taille negative");
+            }
+            if (taille == 0) {
+                System.out.println("tableau est vide");
+            }
+        System.out.println("Veuillez choisir un nombre de valeurs à saisir :");
+        int taille = scanner.nextInt();
+        System.out.println("----");
+        int[] tableau = new int[taille];
+        for (int i = 1; i <= taille; i++) {
+            int j = i-1;
+            System.out.printf("Veuillez saisir le nombre %d :\n", i);
+            tableau[j] = scanner.nextInt();
+        }
+
+        } catch (IllegalArgumentException e){
+            System.out.println("Taille negative");
+        }
+    }
 }
