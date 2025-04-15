@@ -389,24 +389,122 @@ public class Main {
 
     public static void manipTabl(Scanner scanner){
         try {
+            System.out.println("Veuillez choisir un nombre de valeurs à saisir :");
+            int taille = scanner.nextInt();
             if (taille < 0) {
                 throw new IllegalArgumentException("Taille negative");
             }
             if (taille == 0) {
                 System.out.println("tableau est vide");
             }
-        System.out.println("Veuillez choisir un nombre de valeurs à saisir :");
-        int taille = scanner.nextInt();
-        System.out.println("----");
-        int[] tableau = new int[taille];
-        for (int i = 1; i <= taille; i++) {
-            int j = i-1;
-            System.out.printf("Veuillez saisir le nombre %d :\n", i);
-            tableau[j] = scanner.nextInt();
-        }
+            System.out.println("----");
+            int[] tableau = new int[taille];
+            for (int i = 1; i <= taille; i++) {
+                int j = i-1;
+                System.out.printf("Veuillez saisir le nombre %d :\n", i);
+                tableau[j] = scanner.nextInt();
+            }
+            System.out.println("----");
 
+            System.out.print("Tableau de nombres saisis : [");
+            for (int i = 0; i < tableau.length; i++) {
+                System.out.print(tableau[i]);
+                if (i < tableau.length - 1) System.out.print(", ");
+            }
+            System.out.println("]");
+
+            int[] minmax = indDanTab1(tableau);
+            System.out.printf("Min = %d\n", minmax[0]);
+            System.out.printf("Max = %d\n", minmax[1]);
+            float moy = moyenne(tableau);
+            System.out.printf("Moyenne = %f\n", moy);
         } catch (IllegalArgumentException e){
             System.out.println("Taille negative");
         }
+    }
+
+    public static int[] invert(int[] tableau){
+        if (tableau.length == 0) {
+            return tableau;
+        }
+        int[] tableaunew = new int[tableau.length];
+        for (int i = 0; i < tableau.length; i++) {
+            tableaunew[tableau.length-1-i] = tableau[i];
+        }
+        return tableaunew;
+    }
+
+    public static int som2Dtableau(int[][] tableau, int width, int height){
+        int sum =0;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                sum += tableau[i][j];
+            }
+        }
+        return sum;
+    }
+
+    public static int sumMatrixDiag(int[][] tableau, int width, int height, int diagonalType){
+        int sum = 0;
+        if (tableau.length > 0 && tableau[0].length == tableau.length ) {
+            return sum;
+        }
+        for (int i = 0; i < tableau.length; i++) {
+            sum += switch (diagonalType){
+                case 1 -> tableau[i][i];
+                case 2 -> tableau[i][tableau.length-1-i];
+                default -> tableau[i][i];
+            };
+
+
+        }
+        return sum;
+        
+    }
+
+    public static void triangChar1(Scanner scanner){
+        int n = scanner.nextInt();
+        int i = 0;
+        char e = '*';
+        while (i < n){
+            System.out.println(e*(i+1));
+            i++;
+        }
+    }
+
+    public static void triangChar2(Scanner scanner){
+        int n = scanner.nextInt();
+        int i = 1;
+        char e = '*';
+        int j = n;
+
+        while (i == n){
+            System.out.println(e*i);
+            i++;
+
+        }
+        while (j == 0){
+            System.out.println(e*(n-i));
+            j--;
+
+        }
+    }
+
+    public static boolean plusouMois(Scanner scanner, int e){
+        int[] tableau = new int[100];
+        for (int i = 0; i < tableau.length; i++) {
+            tableau[i] = i+1;
+        }
+        System.out.printf("Vous avez %d d'essais pour découvrir un entier secret\n", e);
+        int f = 1;
+        do{
+        System.out.printf("%d essais restant, entrez votre entier entre 1 et 100 :", e-f);
+        int n = scanner.nextInt();
+            if (n > ) {
+
+            }
+
+
+        } while (e == f);
     }
 }
