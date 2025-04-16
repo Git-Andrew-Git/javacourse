@@ -1,6 +1,6 @@
 package fr.javacourse;
-
-public class decomptMaj {
+//9.2
+public class DecomptMaj_9_2 {
     static int checkMaj(char chars){
         if (Character.isLetter(chars) && chars == Character.toUpperCase(chars)) {
             return 1;

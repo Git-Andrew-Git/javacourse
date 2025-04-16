@@ -1,7 +1,7 @@
 package fr.javacourse;
-
-public class manipCaract {
+//9.3
+public class ManipCaract_9_3 {
     public static String manipChar(String text){
-
+        return text.toUpperCase();
     }
 }

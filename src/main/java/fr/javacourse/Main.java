@@ -31,7 +31,7 @@ public class Main {
         scanner.close();
     }
 
-
+//3.1
     public static int[] trouverMax(int var1, int var2, int var3) {
 
 
@@ -67,7 +67,7 @@ public class Main {
         return tableau;
 
     }
-
+//3.2
     public static String verifMaj(String name, int year) {
         int maj = 18;
 
@@ -86,7 +86,7 @@ public class Main {
 
 
     }
-
+//3.3
     public static boolean voyeCons(char charact) throws IllegalArgumentException {
 
         char[] vowels = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
@@ -107,7 +107,7 @@ public class Main {
 
         throw new IllegalArgumentException("Input '" + charact + "' is not a letter");
     }
-
+//3.4
     public static float assezArg(float solde, float article) {
         System.out.println("Entrez le solde bancaire de l'utilisateur: \n");
         System.out.printf("Votre solde est: %f\n", solde);
@@ -117,7 +117,7 @@ public class Main {
         System.out.println(solde < article ? "Payment accepté" : "Payment impossible");
         return solde < article ? solde : result;
     }
-
+//3.5
     public static int tauxPart(char matrimonsaisie, short enfan, int salmensu, char recalc) {
         System.out.println("--- Saisie d'informations sur l'employé ---");
         System.out.println("État matrimonial (C pour célibataire, A pour autre situation) :");
@@ -173,7 +173,7 @@ public class Main {
 
 
     }
-
+//4.1
     public static double youTube() {
         int mois = 24;
         double abonne = 2500.0;
@@ -184,7 +184,7 @@ public class Main {
         }
         return abonne;
     }
-
+//4.2
     public static int somEntier(Scanner scanner) {
 
         int counter = 0;
@@ -209,7 +209,7 @@ public class Main {
             }
         }
     }
-
+//4.3
     public static ArrayList<String> fuzzBuzz(Scanner scanner) {
 
         ArrayList<String> numbers = new ArrayList<>();
@@ -244,7 +244,7 @@ public class Main {
 
 
     }
-
+//4.4
     public static long factorielleN(Scanner scanner) {
         long res = 1L;
 
@@ -276,13 +276,13 @@ public class Main {
             return res;
         }
     }
-
+//5.1
     public static double[] itTableau() {
         double[] nombres = {5.8, 6.4, 5.3};
         Arrays.stream(nombres).forEach(System.out::println);
         return nombres;
     }
-
+//5.2
     public static int rechSeq1(int v, int[] tableau) {
         /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
         int v = 7;*/
@@ -322,7 +322,7 @@ public class Main {
         } while (i < tableau.length);
         return -1;
     }
-
+//5.3
     public static int somEntre1(int[] tableau, int i, int j) {
         int count = 0;
         for (int k = i; k < j; k++) {
@@ -335,7 +335,7 @@ public class Main {
 
         return Arrays.stream(tableau, i, j).sum();
     }
-
+//5.4
     public static int[] indDanTab1(int[] tableau) {
         if (tableau.length == 0) return new int[]{0, 0};
         int max = tableau[0];
@@ -358,7 +358,7 @@ public class Main {
         int max = Arrays.stream(tableau).max().getAsInt();
         return new int[]{min, max};
     }
-
+//5.5
     public static boolean echanVal(int[] tableau, int i, int j) {
         if (i > tableau.length || j > tableau.length || tableau.length == 0) return false;
         int k = tableau[i];
@@ -367,7 +367,7 @@ public class Main {
         tableau[j] = j;
         return true;
     }
-
+//5.6
     public static float moyenne(int[] tableau) {
         if (tableau.length == 0) {
             return 0.0f;
@@ -383,7 +383,7 @@ public class Main {
     public static float moyenne1(int[] tableau) {
         return (float) Arrays.stream(tableau).average().orElse(0.0);
     }
-
+//5.7
     public static void manipTabl(Scanner scanner) {
         try {
             System.out.println("Veuillez choisir un nombre de valeurs à saisir :");
@@ -419,7 +419,7 @@ public class Main {
             System.out.println("Taille negative");
         }
     }
-
+//5.8
     public static int[] invert(int[] tableau) {
         if (tableau.length == 0) {
             return tableau;
@@ -430,7 +430,7 @@ public class Main {
         }
         return tableaunew;
     }
-
+//6.1
     public static int som2Dtableau(int[][] tableau, int width, int height) {
         int sum = 0;
         for (int i = 0; i < height; i++) {
@@ -440,7 +440,7 @@ public class Main {
         }
         return sum;
     }
-
+//6.2
     public static int sumMatrixDiag(int[][] tableau, int width, int height, int diagonalType) {
         int sum = 0;
         if (tableau.length > 0 && tableau[0].length == tableau.length) {
@@ -458,7 +458,7 @@ public class Main {
         return sum;
 
     }
-
+//7
     public static void triangChar1(Scanner scanner) {
         int n = scanner.nextInt();
         int i = 0;
@@ -486,7 +486,7 @@ public class Main {
 
         }
     }
-
+//8
     public static boolean plusouMois1(Scanner scanner, int k) {
         boolean res = false;
         int[] tableau = new int[100];
@@ -607,7 +607,7 @@ public class Main {
         System.out.println("Out of tries");
         return res;*/
     }
-
+//9.1
     public static int decomptVoy(char[] selcharacters){
         String message = "Écrire une fonction permettant de compter les voyelles dans une chaîne de caractères";
         int count = 0;
