@@ -1,6 +1,5 @@
 package fr.javacourse;
 
-
 import java.util.*;
 
 public class Main {
@@ -18,7 +17,6 @@ public class Main {
         char recalc = scanner.next().charAt(0);
         scanner.nextLine();
 
-
         verifMaj(name, year);
         voyeCons(charact);
         assezArg(solde, article);
@@ -27,17 +25,14 @@ public class Main {
         System.out.println(fuzzBuzz(scanner));
         System.out.println(factorielleN(scanner));
 
-
         scanner.close();
     }
 
-//3.1
+    // 3.1
     public static int[] trouverMax(int var1, int var2, int var3) {
-
 
         int min;
         int max;
-
 
         if (var1 <= var2 && var1 <= var3) {
             min = var1;
@@ -67,10 +62,10 @@ public class Main {
         return tableau;
 
     }
-//3.2
+
+    // 3.2
     public static String verifMaj(String name, int year) {
         int maj = 18;
-
 
         System.out.println("Hi, enter your name: \n");
 
@@ -84,13 +79,12 @@ public class Main {
             return String.format("you are %s years old, you are minor, access not granted", year);
         }
 
-
     }
-//3.3
+
+    // 3.3
     public static boolean voyeCons(char charact) throws IllegalArgumentException {
 
-        char[] vowels = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
-
+        char[] vowels = { 'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u' };
 
         for (char v : vowels) {
             if (charact == v) {
@@ -99,7 +93,6 @@ public class Main {
             }
         }
 
-
         if (Character.isLetter(charact)) {
             System.out.println('c');
             return false;
@@ -107,7 +100,8 @@ public class Main {
 
         throw new IllegalArgumentException("Input '" + charact + "' is not a letter");
     }
-//3.4
+
+    // 3.4
     public static float assezArg(float solde, float article) {
         System.out.println("Entrez le solde bancaire de l'utilisateur: \n");
         System.out.printf("Votre solde est: %f\n", solde);
@@ -117,7 +111,8 @@ public class Main {
         System.out.println(solde < article ? "Payment accepté" : "Payment impossible");
         return solde < article ? solde : result;
     }
-//3.5
+
+    // 3.5
     public static int tauxPart(char matrimonsaisie, short enfan, int salmensu, char recalc) {
         System.out.println("--- Saisie d'informations sur l'employé ---");
         System.out.println("État matrimonial (C pour célibataire, A pour autre situation) :");
@@ -140,23 +135,24 @@ public class Main {
             matrimonres += 0;
         } else if (salmensu > 1800) {
             matrimonres += salmensu;
-        } else throw new IllegalArgumentException("Salaire ne peut pas être négatif");
+        } else
+            throw new IllegalArgumentException("Salaire ne peut pas être négatif");
         matrimonres = (matrimonres > 50) ? 50 : matrimonres;
 
         System.out.printf("Le taux de participation est de %d%%\n", matrimonres);
-
 
         System.out.println("---");
 
         System.out.println("Souhaitez-vous effectuer le calcul pour un autre employé ? (Y/N)");
         final char yes = 'Y';
         final char no = 'N';
-            /*char newemp = switch (recalc){
-                case yes -> tauxPart();
-                case no -> ;
-                default -> throw new IllegalArgumentException();
-            }*/
-
+        /*
+         * char newemp = switch (recalc){
+         * case yes -> tauxPart();
+         * case no -> ;
+         * default -> throw new IllegalArgumentException();
+         * }
+         */
 
         switch (recalc) {
             case yes:
@@ -171,9 +167,9 @@ public class Main {
 
         return matrimonres;
 
-
     }
-//4.1
+
+    // 4.1
     public static double youTube() {
         int mois = 24;
         double abonne = 2500.0;
@@ -184,18 +180,17 @@ public class Main {
         }
         return abonne;
     }
-//4.2
+
+    // 4.2
     public static int somEntier(Scanner scanner) {
 
         int counter = 0;
-
 
         while (true) {
             System.out.println("Enter a number or 'Q' to quit: ");
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("Q")) {
                 return counter;
-
 
             }
             try {
@@ -209,7 +204,8 @@ public class Main {
             }
         }
     }
-//4.3
+
+    // 4.3
     public static ArrayList<String> fuzzBuzz(Scanner scanner) {
 
         ArrayList<String> numbers = new ArrayList<>();
@@ -242,12 +238,11 @@ public class Main {
         numbers.forEach(System.out::println);
         return numbers;
 
-
     }
-//4.4
+
+    // 4.4
     public static long factorielleN(Scanner scanner) {
         long res = 1L;
-
 
         try {
             int input = scanner.nextInt();
@@ -260,7 +255,7 @@ public class Main {
                 elements.add(input - counter);
                 counter++;
             }
-            final long[] resArr = {res};
+            final long[] resArr = { res };
             elements.forEach(e -> {
                 resArr[0] *= e;
             });
@@ -276,27 +271,45 @@ public class Main {
             return res;
         }
     }
-//5.1
+
+    // 5.1
     public static double[] itTableau() {
-        double[] nombres = {5.8, 6.4, 5.3};
+        double[] nombres = { 5.8, 6.4, 5.3 };
         Arrays.stream(nombres).forEach(System.out::println);
         return nombres;
     }
-//5.2
+
+    // 5.2
+    // TODO ajouter commentaire en "Javadoc"
+    // plus d'informations sur la Javadoc : https://www.baeldung.com/javadoc
     public static int rechSeq1(int v, int[] tableau) {
-        /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
-        int v = 7;*/
+
+        // FIXME la compilation ne peut pas se faire
+        // Explication : la fonction "rechSeq1" a un type de retour (int) et s'attend
+        // donc a avoir un "return"
+        // il est donc obligatoire d'atteindre un "return"
+        // par contre, dans l'état actuel, il existe un scénatio où le "return" n'est
+        // pas atteint
+        // c'est le cas où tableau.length == 0
+        // il faut donc ajouter un "return" après la boucle
+        // dans ce cas tu peux renvoyer -1
+        /*
+         * int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+         * int v = 7;
+         */
         for (int i = 0; i < tableau.length; i++) {
             if (v == tableau[i]) {
-
                 return i;
             }
         }
     }
 
+    // TODO ajout commentaire en Javadoc
     public static int rechSeq2(int v, int[] tableau) {
-        /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
-        int v = 7;*/
+        /*
+         * int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+         * int v = 7;
+         */
         int i = 0;
         while (i < tableau.length) {
             if (v == tableau[i]) {
@@ -309,9 +322,12 @@ public class Main {
 
     }
 
+    // TODO ajout commentaire en Javadoc
     public static int rechSeq3(int v, int[] tableau) {
-        /*int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
-        int v = 7;*/
+        /*
+         * int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
+         * int v = 7;
+         */
         int i = 0;
         do {
             if (v == tableau[i]) {
@@ -322,7 +338,11 @@ public class Main {
         } while (i < tableau.length);
         return -1;
     }
-//5.3
+
+    // 5.3
+    // ✅ okay, pour améliorer la lisibilité du code tu peux adopter un nom de
+    // fonction plus explicite
+    // par exemple : "arraySumLoop"
     public static int somEntre1(int[] tableau, int i, int j) {
         int count = 0;
         for (int k = i; k < j; k++) {
@@ -331,13 +351,24 @@ public class Main {
         return count;
     }
 
+    // ✅ okay, pour améliorer la lisibilité du code tu peux adopter un nom de
+    // fonction plus explicite
+    // par exemple : "arraySumStream"
     public static int somEntre2(int[] tableau, int i, int j) {
 
         return Arrays.stream(tableau, i, j).sum();
     }
-//5.4
+
+    // 5.4
+    // TODO pour le moment la fonction renvoie les valeurs min et max
+    // il faudrait faire en sorte qu'elle renvoie les index des min et max
     public static int[] indDanTab1(int[] tableau) {
-        if (tableau.length == 0) return new int[]{0, 0};
+        if (tableau.length == 0)
+            return new int[] { 0, 0 };
+
+        // TODO comment faire en sorte de ne pas avoir à déclarer les variables min et
+        // max ?
+        // serait-il possible d'utiliser la variable "newArr" à la place ?
         int max = tableau[0];
         int min = tableau[0];
         for (int i = 0; i < tableau.length; i++) {
@@ -349,25 +380,35 @@ public class Main {
             }
         }
 
-        int[] newArr = {min, max};
+        int[] newArr = { min, max };
         return newArr;
     }
 
+    // TODO même remarque que pour "indDanTab1", ici les valeurs sont retournées, il
+    // nous faudrait les index
     public static int[] indDanTab2(int[] tableau) {
         int min = Arrays.stream(tableau).min().getAsInt();
         int max = Arrays.stream(tableau).max().getAsInt();
-        return new int[]{min, max};
+        return new int[] { min, max };
     }
-//5.5
+
+    // 5.5
     public static boolean echanVal(int[] tableau, int i, int j) {
-        if (i > tableau.length || j > tableau.length || tableau.length == 0) return false;
+        if (i > tableau.length || j > tableau.length || tableau.length == 0)
+            return false;
+
+        // TODO la variable 'k' n'est pas utilisée, pourquoi ?
         int k = tableau[i];
         int l = tableau[j];
         tableau[i] = l;
+        // TODO attention, c'est les valeurs que nous souhaitons échanger
+        // ici le 'j' est l'indice
         tableau[j] = j;
         return true;
     }
-//5.6
+
+    // 5.6
+    // ✅ okay, tu peux modifier le nom pour être pus explicite
     public static float moyenne(int[] tableau) {
         if (tableau.length == 0) {
             return 0.0f;
@@ -380,10 +421,13 @@ public class Main {
         return moyen;
     }
 
+    // ✅ okay
     public static float moyenne1(int[] tableau) {
         return (float) Arrays.stream(tableau).average().orElse(0.0);
     }
-//5.7
+
+    // 5.7
+    // ✅ okay
     public static void manipTabl(Scanner scanner) {
         try {
             System.out.println("Veuillez choisir un nombre de valeurs à saisir :");
@@ -406,7 +450,8 @@ public class Main {
             System.out.print("Tableau de nombres saisis : [");
             for (int i = 0; i < tableau.length; i++) {
                 System.out.print(tableau[i]);
-                if (i < tableau.length - 1) System.out.print(", ");
+                if (i < tableau.length - 1)
+                    System.out.print(", ");
             }
             System.out.println("]");
 
@@ -419,18 +464,23 @@ public class Main {
             System.out.println("Taille negative");
         }
     }
-//5.8
+
+    // 5.8
+    // ✅ okay
     public static int[] invert(int[] tableau) {
         if (tableau.length == 0) {
             return tableau;
         }
+
         int[] tableaunew = new int[tableau.length];
         for (int i = 0; i < tableau.length; i++) {
             tableaunew[tableau.length - 1 - i] = tableau[i];
         }
         return tableaunew;
     }
-//6.1
+
+    // 6.1
+    // ✅ okay
     public static int som2Dtableau(int[][] tableau, int width, int height) {
         int sum = 0;
         for (int i = 0; i < height; i++) {
@@ -440,25 +490,28 @@ public class Main {
         }
         return sum;
     }
-//6.2
+
+    // 6.2
     public static int sumMatrixDiag(int[][] tableau, int width, int height, int diagonalType) {
         int sum = 0;
         if (tableau.length > 0 && tableau[0].length == tableau.length) {
             return sum;
         }
         for (int i = 0; i < tableau.length; i++) {
+            // ✅ très bonne utilisation d'un "switch expression"
             sum += switch (diagonalType) {
                 case 1 -> tableau[i][i];
                 case 2 -> tableau[i][tableau.length - 1 - i];
                 default -> tableau[i][i];
             };
 
-
         }
         return sum;
 
     }
-//7
+
+    // 7
+    // ✅ okay
     public static void triangChar1(Scanner scanner) {
         int n = scanner.nextInt();
         int i = 0;
@@ -469,12 +522,14 @@ public class Main {
         }
     }
 
+    // ✅ okay
     public static void triangChar2(Scanner scanner) {
         int n = scanner.nextInt();
         int i = 1;
         char e = '*';
         int j = n;
 
+        // TODO serait-il possible de trouver une solution avec 1 seule boucle WHILE ?
         while (i == n) {
             System.out.println(e * i);
             i++;
@@ -486,7 +541,9 @@ public class Main {
 
         }
     }
-//8
+
+    // 8
+    // ✅ okay
     public static boolean plusouMois1(Scanner scanner, int k) {
         boolean res = false;
         int[] tableau = new int[100];
@@ -496,11 +553,11 @@ public class Main {
             tableau[i] = i + 1;
         }
         System.out.printf("Vous avez %u u'essais pour découvrir un entier secret\n", k);
-//       N° u'essais
+        // N° u'essais
         int f = 1;
-//        lower boundary
+        // lower boundary
         int d = 1;
-//        upper boundary
+        // upper boundary
         int u = tableau.length;
         do {
             System.out.printf("%u essais restant, entrez votre entier entre 1 et 100 :", k - f);
@@ -509,26 +566,27 @@ public class Main {
                 if (n < d || n > u) {
                     throw new IllegalArgumentException("Out of boundaries");
                 }
+
                 if (n == rn) {
                     System.out.println("YOU WON!");
                     return res = true;
                 } else if (n > tableau.length / 2 && rn > tableau.length / 2) {
-                    d += u/2;
+                    d += u / 2;
                     System.out.printf("you are in the correct half of the numbers in between: %f and %f\n", d, u);
-//                tableau = Arrays.copyOf(tableau, tableau.length/2);
+                    // tableau = Arrays.copyOf(tableau, tableau.length/2);
                 } else if (n <= tableau.length / 2 && rn <= tableau.length / 2) {
-                    u -= (u+1-d)/2;
+                    u -= (u + 1 - d) / 2;
                     System.out.printf("you are in the correct half of the numbers in between: %f and %f\n", d, u);
-//                tableau = Arrays.copyOfRange(tableau, tableau.length/2, tableau.length);
+                    // tableau = Arrays.copyOfRange(tableau, tableau.length/2, tableau.length);
                 } else {
                     if (n > tableau.length / 2) {
-                        d += u/2;
+                        d += u / 2;
                         System.out.printf("you are in the wrong half of the numbers in between: %f and %f\n", d, u);
-//                    tableau = Arrays.stream(tableau).limit(tableau.length/2).toArray();
+                        // tableau = Arrays.stream(tableau).limit(tableau.length/2).toArray();
                     } else {
-                        u -= (u+1-d)/2;
+                        u -= (u + 1 - d) / 2;
                         System.out.printf("you are in the wrong half of the numbers in between: %f and %f\n", d, u);
-//                    tableau = Arrays.stream(tableau).skip(tableau.length/2).toArray();
+                        // tableau = Arrays.stream(tableau).skip(tableau.length/2).toArray();
                     }
                 }
 
@@ -536,12 +594,14 @@ public class Main {
                 System.out.println("Out of boundaries");
             }
 
-        f++;
+            f++;
         } while (k == f);
+
         System.out.println("Out of tries");
         return res;
     }
 
+    // TODO ajouter un "return" booléen pour satisfaire le compilateur
     public static boolean plusouMois2(Scanner scanner, int k) {
         boolean res = false;
         int[] tableau = new int[100];
@@ -562,79 +622,88 @@ public class Main {
             tableau[i] = m;
         }
         System.out.printf("Vous avez %u u'essais pour découvrir un entier secret\n", k);
-//       N° u'essais
+        // N° u'essais
         int f = 1;
-//        lower boundary
+        // lower boundary
         int d = 1;
-//        upper boundary
+        // upper boundary
         int u = tableau.length;
-        /*do {
-            System.out.printf("%u essais restant, entrez votre entier entre 1 et 100 :", k - f);
-            int n = scanner.nextInt();
-            try {
-                if (n < d || n > u) {
-                    throw new IllegalArgumentException("Out of boundaries");
-                }
-                if (n == rn) {
-                    System.out.println("YOU WON!");
-                    return res = true;
-                } else if (n > tableau.length / 2 && rn > tableau.length / 2) {
-                    d += u/2;
-                    System.out.printf("you are in the correct half of the numbers in between: %f and %f\n", d, u);
-//                tableau = Arrays.copyOf(tableau, tableau.length/2);
-                } else if (n <= tableau.length / 2 && rn <= tableau.length / 2) {
-                    u -= (u+1-d)/2;
-                    System.out.printf("you are in the correct half of the numbers in between: %f and %f\n", d, u);
-//                tableau = Arrays.copyOfRange(tableau, tableau.length/2, tableau.length);
-                } else {
-                    if (n > tableau.length / 2) {
-                        d += u/2;
-                        System.out.printf("you are in the wrong half of the numbers in between: %f and %f\n", d, u);
-//                    tableau = Arrays.stream(tableau).limit(tableau.length/2).toArray();
-                    } else {
-                        u -= (u+1-d)/2;
-                        System.out.printf("you are in the wrong half of the numbers in between: %f and %f\n", d, u);
-//                    tableau = Arrays.stream(tableau).skip(tableau.length/2).toArray();
-                    }
-                }
-
-            } catch (IllegalArgumentException e) {
-                System.out.println("Out of boundaries");
-            }
-
-            f++;
-        } while (k == f);
-        System.out.println("Out of tries");
-        return res;*/
+        /*
+         * do {
+         * System.out.printf("%u essais restant, entrez votre entier entre 1 et 100 :",
+         * k - f);
+         * int n = scanner.nextInt();
+         * try {
+         * if (n < d || n > u) {
+         * throw new IllegalArgumentException("Out of boundaries");
+         * }
+         * if (n == rn) {
+         * System.out.println("YOU WON!");
+         * return res = true;
+         * } else if (n > tableau.length / 2 && rn > tableau.length / 2) {
+         * d += u/2;
+         * System.out.
+         * printf("you are in the correct half of the numbers in between: %f and %f\n",
+         * d, u);
+         * // tableau = Arrays.copyOf(tableau, tableau.length/2);
+         * } else if (n <= tableau.length / 2 && rn <= tableau.length / 2) {
+         * u -= (u+1-d)/2;
+         * System.out.
+         * printf("you are in the correct half of the numbers in between: %f and %f\n",
+         * d, u);
+         * // tableau = Arrays.copyOfRange(tableau, tableau.length/2, tableau.length);
+         * } else {
+         * if (n > tableau.length / 2) {
+         * d += u/2;
+         * System.out.
+         * printf("you are in the wrong half of the numbers in between: %f and %f\n", d,
+         * u);
+         * // tableau = Arrays.stream(tableau).limit(tableau.length/2).toArray();
+         * } else {
+         * u -= (u+1-d)/2;
+         * System.out.
+         * printf("you are in the wrong half of the numbers in between: %f and %f\n", d,
+         * u);
+         * // tableau = Arrays.stream(tableau).skip(tableau.length/2).toArray();
+         * }
+         * }
+         * 
+         * } catch (IllegalArgumentException e) {
+         * System.out.println("Out of boundaries");
+         * }
+         * 
+         * f++;
+         * } while (k == f);
+         * System.out.println("Out of tries");
+         * return res;
+         */
     }
-//9.1
-    public static int decomptVoy(char[] selcharacters){
+
+    // 9.1
+    public static int decomptVoy(char[] selcharacters) {
         String message = "Écrire une fonction permettant de compter les voyelles dans une chaîne de caractères";
         int count = 0;
         System.out.println("Entry data lower case chars, counts both upper and lower case matches");
         try {
 
-        if (selcharacters.length < 1) {
-            throw new Exception("You need to insert at least one char");
-        }
-        if (message.length() == 0) {
-            System.out.println("No chars of this type found");
-            return count;
-        }
-        for (char i : selcharacters) {
-            for (int j = 0; j < message.length(); j++) {
-                if (i == Character.toLowerCase(message.charAt(j))) {
-                    count++;
+            if (selcharacters.length < 1) {
+                throw new Exception("You need to insert at least one char");
+            }
+            if (message.length() == 0) {
+                System.out.println("No chars of this type found");
+                return count;
+            }
+            for (char i : selcharacters) {
+                for (int j = 0; j < message.length(); j++) {
+                    if (i == Character.toLowerCase(message.charAt(j))) {
+                        count++;
+                    }
                 }
             }
-        }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("You need to insert at least one char");
         }
         return count;
     }
-
-
-
 
 }

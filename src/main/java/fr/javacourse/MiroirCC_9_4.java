@@ -1,6 +1,7 @@
 package fr.javacourse;
 //9.4
 public class MiroirCC_9_4 {
+     // ✅ okay
     public static String invertChars(String text){
         String newtext = "";
         for (int i = 0; i < text.length(); i++) {
