@@ -536,8 +536,9 @@ public class Main {
                 System.out.println("Out of boundaries");
             }
 
-        k++;
+        f++;
         } while (k == f);
+        System.out.println("Out of tries");
         return res;
     }
 
@@ -545,9 +546,20 @@ public class Main {
         boolean res = false;
         int[] tableau = new int[100];
         Random r = new Random();
-        int rn = r.nextInt(99) + 1;
+        int rn = r.nextInt(100) + 1;
         for (int i = 0; i < tableau.length; i++) {
-            tableau[i] = i + 1;
+            int m;
+            boolean unique;
+            do {
+                m = r.nextInt(100) + 1; // Range 1 to 100
+                unique = true;
+                for (int j = 0; j < i && unique; j++) {
+                    if (m == tableau[j]) {
+                        unique = false;
+                    }
+                }
+            } while (!unique);
+            tableau[i] = m;
         }
         System.out.printf("Vous avez %u u'essais pour découvrir un entier secret\n", k);
 //       N° u'essais
@@ -556,7 +568,7 @@ public class Main {
         int d = 1;
 //        upper boundary
         int u = tableau.length;
-        do {
+        /*do {
             System.out.printf("%u essais restant, entrez votre entier entre 1 et 100 :", k - f);
             int n = scanner.nextInt();
             try {
@@ -590,8 +602,39 @@ public class Main {
                 System.out.println("Out of boundaries");
             }
 
-            k++;
+            f++;
         } while (k == f);
-        return res;
+        System.out.println("Out of tries");
+        return res;*/
     }
+
+    public static int decomptVoy(char[] selcharacters){
+        String message = "Écrire une fonction permettant de compter les voyelles dans une chaîne de caractères";
+        int count = 0;
+        System.out.println("Entry data lower case chars, counts both upper and lower case matches");
+        try {
+
+        if (selcharacters.length < 1) {
+            throw new Exception("You need to insert at least one char");
+        }
+        if (message.length() == 0) {
+            System.out.println("No chars of this type found");
+            return count;
+        }
+        for (char i : selcharacters) {
+            for (int j = 0; j < message.length(); j++) {
+                if (i == Character.toLowerCase(message.charAt(j))) {
+                    count++;
+                }
+            }
+        }
+        } catch (Exception e){
+            System.out.println("You need to insert at least one char");
+        }
+        return count;
+    }
+
+
+
+
 }
