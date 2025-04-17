@@ -9,7 +9,9 @@ public class FusionnerDeuxTableauTrie {
     public static ArrayList<Integer> fusionnerDeuxTableauTrie(ArrayList<Integer> arrayOne, ArrayList<Integer> arrayTwo) {
         ArrayList<Integer> newArray = new ArrayList<>();
 
-        int initialValue1 = arrayOne.get(0);
+
+
+        /*int initialValue1 = arrayOne.get(0);
         int initialValue2 = arrayTwo.get(0);
         //check if arrays have 2nd element than assign or logic
             int secondpairV1 = arrayOne.get(1);
@@ -22,8 +24,8 @@ public class FusionnerDeuxTableauTrie {
         int two = 0;
         int s1;
         int s2;
-        /*int v1;
-        int v2;*/
+        int v1;
+        int v2;
         for (int i = 0; i < (arrayTwo.size()+arrayOne.size()); i++) {
 
             // stronger of the first pair
@@ -51,6 +53,7 @@ public class FusionnerDeuxTableauTrie {
                 pointer3 = secondpairV1;
 
             }
+
             // compare the winners of the first two comparisons
             if (pointer2 >= pointer1) {
                 newArray.addAll(Arrays.asList(pointer1));
@@ -63,9 +66,7 @@ public class FusionnerDeuxTableauTrie {
                     case 1 -> one++;
                     case 2 -> two++;
                     default -> one++;
-                };
-
-
+                }
             } else {
                 newArray.addAll(Arrays.asList(pointer2));
                 pointer2 = pointer1;
@@ -74,17 +75,21 @@ public class FusionnerDeuxTableauTrie {
                     pointer3 = pointer2;
                     pointer2 = t;
                 }
+
                 switch (s1) {
                     case 1 -> one++;
                     case 2 -> two++;
                     default -> one++;
-                };
+                }
             }
+
+
             switch (s1) {
                 case 1 -> one++;
                 case 2 -> two++;
                 default -> one++;
-            };
+            }
+
             initialValue1 = pointer2;
             initialValue2 = pointer3;
             if (arrayTwo.size() < two) {
@@ -100,12 +105,12 @@ public class FusionnerDeuxTableauTrie {
                 }
             }
             //logic for in order to establish elements of second pair
-            /*if (arrayOne.get(one) >= arrayTwo.get(two)) {
+            if (arrayOne.get(one) >= arrayTwo.get(two)) {
                 if (arrayOne.get(one) >= arrayTwo.get(two+1)) {
                     
                 }
-            }*/
+            }
 
-        }
+        }*/
     }
 }
