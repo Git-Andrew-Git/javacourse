@@ -4,10 +4,50 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
+/**
+ * The type Fusionner deux tableau trie.
+ */
 //11
 public class FusionnerDeuxTableauTrie {
+    /**
+     * Fusionner deux tableau trie array list.
+     *
+     * @param arrayOne the array one
+     * @param arrayTwo the array two
+     * @return the array list
+     */
     public static ArrayList<Integer> fusionnerDeuxTableauTrie(ArrayList<Integer> arrayOne, ArrayList<Integer> arrayTwo) {
         ArrayList<Integer> newArray = new ArrayList<>();
+
+
+        int one=0;
+        int two=0;
+
+        for (int i = 0; i < (arrayOne.size()+arrayTwo.size()); i++) {
+            if (arrayTwo.size() < two) {
+                for (int j = one; j < arrayOne.size(); j++) {
+                    newArray.add(arrayOne.get(j));
+                }
+                    return newArray;
+            }
+            if (arrayOne.size() < one) {
+                for (int k = two; k < arrayTwo.size(); k++) {
+                    newArray.add(arrayTwo.get(k));
+                }
+                    return newArray;
+            }
+            if (arrayOne.get(one) >= arrayTwo.get(two)) {
+
+                newArray.add(arrayTwo.get(two));
+                two++;
+            } else if (arrayOne.get(one) < arrayTwo.get(two)) {
+                newArray.add(arrayOne.get(one));
+                one++;
+            }
+
+        }
+        return newArray;
+
 
 
 
