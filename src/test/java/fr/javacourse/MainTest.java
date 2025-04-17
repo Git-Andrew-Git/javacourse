@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainTest {
     @Test
-    public void trouverMaxTest() {
-        int[] res = Main.trouverMax(5, 3, 4);
+    public void trouverMaxMinTest() {
+        int[] res = Main.trouverMaxMin(5, 3, 4);
         assertEquals(3, res[0]);
     }
 

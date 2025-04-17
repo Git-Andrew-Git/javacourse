@@ -2,7 +2,15 @@ package fr.javacourse;
 
 import java.util.*;
 
+/**
+ * The type Main.
+ */
 public class Main {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -28,8 +36,16 @@ public class Main {
         scanner.close();
     }
 
-    // 3.1
-    public static int[] trouverMax(int var1, int var2, int var3) {
+    /**
+     * Trouver le maximum et le minimum entre trois nombres, int [ ].
+     *
+     * @param var1 nombre 1
+     * @param var2 nombre 2
+     * @param var3 nombre 3
+     * @return le maximum et le minimum entre trois nombres, the int [ ]
+     */
+// 3.1
+    public static int[] trouverMaxMin(int var1, int var2, int var3) {
 
         int min;
         int max;
@@ -63,7 +79,14 @@ public class Main {
 
     }
 
-    // 3.2
+    /**
+     * Vérification de la majorité
+     *
+     * @param name l'information sur l'année de naissance sera saisie par l'utilisateur
+     * @param year the year
+     * @return the string  indiquant à l'utilisateur, en fonction d'une année de naissance saisie s'il est majeur ou mineur
+     */
+// 3.2
     public static String verifMaj(String name, int year) {
         int maj = 18;
 
@@ -81,10 +104,17 @@ public class Main {
 
     }
 
-    // 3.3
+    /**
+     * Voyelle ou consonne ?
+     *
+     * @param charact prend un caractère
+     * @return retourne le caractère V si le caractère est une voyelle et le caractère C s'il s'agit d'une consonne, the boolean(true = v, false = c)
+     * @throws IllegalArgumentException the illegal argument exception
+     */
+// 3.3
     public static boolean voyeCons(char charact) throws IllegalArgumentException {
 
-        char[] vowels = { 'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u' };
+        char[] vowels = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
 
         for (char v : vowels) {
             if (charact == v) {
@@ -101,7 +131,14 @@ public class Main {
         throw new IllegalArgumentException("Input '" + charact + "' is not a letter");
     }
 
-    // 3.4
+    /**
+     * Vérification de solde d'un compte bancaire
+     *
+     * @param solde   solde bancaire de l'utilisateur
+     * @param article le prix du produit qui l'intéresse
+     * @return indique la somme restante après achat, s'il est posible, the float
+     */
+// 3.4
     public static float assezArg(float solde, float article) {
         System.out.println("Entrez le solde bancaire de l'utilisateur: \n");
         System.out.printf("Votre solde est: %f\n", solde);
@@ -112,7 +149,16 @@ public class Main {
         return solde < article ? solde : result;
     }
 
-    // 3.5
+    /**
+     * Structure de contrôle alternative
+     *
+     * @param matrimonsaisie État matrimonial
+     * @param enfan          Nombre d'enfants
+     * @param salmensu       salaire mensue
+     * @param recalc         the recalculer
+     * @return taux de participation, the int
+     */
+// 3.5
     public static int tauxPart(char matrimonsaisie, short enfan, int salmensu, char recalc) {
         System.out.println("--- Saisie d'informations sur l'employé ---");
         System.out.println("État matrimonial (C pour célibataire, A pour autre situation) :");
@@ -169,7 +215,12 @@ public class Main {
 
     }
 
-    // 4.1
+    /**
+     * Abonné.e.s Youtube, double.
+     *
+     * @return combien on gagne d'abonné.e.s the double
+     */
+// 4.1
     public static double youTube() {
         int mois = 24;
         double abonne = 2500.0;
@@ -181,7 +232,13 @@ public class Main {
         return abonne;
     }
 
-    // 4.2
+    /**
+     * Som entier int.
+     *
+     * @param scanner entier, the scanner
+     * @return un entier correspondant à la somme des entiers de 0 à n, the int
+     */
+// 4.2
     public static int somEntier(Scanner scanner) {
 
         int counter = 0;
@@ -205,7 +262,13 @@ public class Main {
         }
     }
 
-    // 4.3
+    /**
+     * Fuzz buzz array list.
+     *
+     * @param scanner un entier n définissant le nombre d'itérations de la boucle, the scanner
+     * @return shows the result in console, the array list
+     */
+// 4.3
     public static ArrayList<String> fuzzBuzz(Scanner scanner) {
 
         ArrayList<String> numbers = new ArrayList<>();
@@ -240,7 +303,13 @@ public class Main {
 
     }
 
-    // 4.4
+    /**
+     * Factorielle n long.
+     *
+     * @param scanner un entier n pour calculer Factorielle,  the scanner
+     * @return resultat, Factorielle, the long
+     */
+// 4.4
     public static long factorielleN(Scanner scanner) {
         long res = 1L;
 
@@ -255,7 +324,7 @@ public class Main {
                 elements.add(input - counter);
                 counter++;
             }
-            final long[] resArr = { res };
+            final long[] resArr = {res};
             elements.forEach(e -> {
                 resArr[0] *= e;
             });
@@ -273,15 +342,29 @@ public class Main {
     }
 
     // 5.1
+
+    /**
+     * Itération sur un tableau
+     *
+     * @return Afficher les nombres contenus dans un tableau de réels
+     */
     public static double[] itTableau() {
-        double[] nombres = { 5.8, 6.4, 5.3 };
+        double[] nombres = {5.8, 6.4, 5.3};
         Arrays.stream(nombres).forEach(System.out::println);
         return nombres;
     }
 
     // 5.2
-    // TODO ajouter commentaire en "Javadoc"
-    // plus d'informations sur la Javadoc : https://www.baeldung.com/javadoc
+
+
+    /**
+     * Recherche séquentielle, for, int
+     *
+     * @param v       un élément value entier positif à rechercher dans le tableau
+     * @param tableau un tableau de n entiers positifs
+     * @return l 'index de la valeur retrouvée
+     * @author Andrii
+     */
     public static int rechSeq1(int v, int[] tableau) {
 
         // FIXME la compilation ne peut pas se faire
@@ -302,9 +385,19 @@ public class Main {
                 return i;
             }
         }
+        // ✅
+        return -1;
     }
 
-    // TODO ajout commentaire en Javadoc
+    /**
+     * Recherche séquentielle, while, int
+     *
+     * @param v       un élément value entier positif à rechercher dans le tableau
+     * @param tableau un tableau de n entiers positifs
+     * @return l 'index de la valeur retrouvée
+     * @author Andrii
+     */
+
     public static int rechSeq2(int v, int[] tableau) {
         /*
          * int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
@@ -322,7 +415,15 @@ public class Main {
 
     }
 
-    // TODO ajout commentaire en Javadoc
+    /**
+     * Recherche séquentielle, do-while, int
+     *
+     * @param v       un élément value entier positif à rechercher dans le tableau
+     * @param tableau un tableau de n entiers positifs
+     * @return l 'index de la valeur retrouvée
+     * @author Andrii
+     */
+
     public static int rechSeq3(int v, int[] tableau) {
         /*
          * int[] tableau = {1, 5, 8, 6 ,7, 2, 4};
@@ -339,7 +440,15 @@ public class Main {
         return -1;
     }
 
-    // 5.3
+    /**
+     * Somme entre deux index, algo, int
+     *
+     * @param tableau  tableau d'entiers
+     * @param i       the
+     * @param j       the j
+     * @return  Additionner les valeurs des éléments d'un tableau d'entiers entre les index i et j, the int
+     */
+// 5.3
     // ✅ okay, pour améliorer la lisibilité du code tu peux adopter un nom de
     // fonction plus explicite
     // par exemple : "arraySumLoop"
@@ -351,7 +460,15 @@ public class Main {
         return count;
     }
 
-    // ✅ okay, pour améliorer la lisibilité du code tu peux adopter un nom de
+    /**
+     * Somme entre deux index, stream, int
+     *
+     * @param tableau  tableau d'entiers
+     * @param i       the
+     * @param j       the j
+     * @return  Additionner les valeurs des éléments d'un tableau d'entiers entre les index i et j, the int
+     */
+// ✅ okay, pour améliorer la lisibilité du code tu peux adopter un nom de
     // fonction plus explicite
     // par exemple : "arraySumStream"
     public static int somEntre2(int[] tableau, int i, int j) {
@@ -359,40 +476,57 @@ public class Main {
         return Arrays.stream(tableau, i, j).sum();
     }
 
-    // 5.4
+    /**
+     * Recherche d'indices dans un tableau, algo, int [ ].
+     *
+     * @param tableau the tableau
+     * @return les indices des éléments minimum et maximum d'un tableau d'entiers, the int [ ]
+     */
+// 5.4
     // TODO pour le moment la fonction renvoie les valeurs min et max
     // il faudrait faire en sorte qu'elle renvoie les index des min et max
     public static int[] indDanTab1(int[] tableau) {
         if (tableau.length == 0)
-            return new int[] { 0, 0 };
+            return new int[]{0, 0};
 
-        // TODO comment faire en sorte de ne pas avoir à déclarer les variables min et
-        // max ?
-        // serait-il possible d'utiliser la variable "newArr" à la place ?
-        int max = tableau[0];
-        int min = tableau[0];
+
+
+        int[] newArr = {tableau[0], tableau[0]};
         for (int i = 0; i < tableau.length; i++) {
-            if (min >= tableau[i]) {
-                min = tableau[i];
+            if (newArr[0] >= tableau[i]) {
+                newArr[0] = i;
             }
-            if (max <= tableau[i]) {
-                max = tableau[i];
+            if (newArr[1] <= tableau[i]) {
+                newArr[1] = i;
             }
         }
 
-        int[] newArr = { min, max };
         return newArr;
     }
 
-    // TODO même remarque que pour "indDanTab1", ici les valeurs sont retournées, il
+    /**
+     * Recherche d'indices dans un tableau, stream, int [ ].
+     *
+     * @param tableau the tableau
+     * @return les indices des éléments minimum et maximum d'un tableau d'entiers, the int [ ]
+     */
+// TODO même remarque que pour "indDanTab1", ici les valeurs sont retournées, il
     // nous faudrait les index
-    public static int[] indDanTab2(int[] tableau) {
+    /*public static int[] indDanTab2(int[] tableau) {
         int min = Arrays.stream(tableau).min().getAsInt();
         int max = Arrays.stream(tableau).max().getAsInt();
-        return new int[] { min, max };
-    }
+        return new int[]{min, max};
+    }*/
 
-    // 5.5
+    /**
+     * Echange de valeurs
+     *
+     * @param tableau a tableau à modifier
+     * @param i       indice de la première valeur à échanger
+     * @param j       indice de la deuxièem valeur
+     * @return un booléen à VRAI si l'opération d'échange est possible (autrement dit, si les indices utilisés sont corrects), FAUX sinon
+     */
+// 5.5
     public static boolean echanVal(int[] tableau, int i, int j) {
         if (i > tableau.length || j > tableau.length || tableau.length == 0)
             return false;
@@ -403,11 +537,17 @@ public class Main {
         tableau[i] = l;
         // TODO attention, c'est les valeurs que nous souhaitons échanger
         // ici le 'j' est l'indice
-        tableau[j] = j;
+        tableau[j] = k;
         return true;
     }
 
-    // 5.6
+    /**
+     * Calcul de moyenne, algo
+     *
+     * @param tableau un tableau d'entiers
+     * @return un nombre réel correspondant à la moyenne, the float
+     */
+// 5.6
     // ✅ okay, tu peux modifier le nom pour être pus explicite
     public static float moyenne(int[] tableau) {
         if (tableau.length == 0) {
@@ -421,12 +561,23 @@ public class Main {
         return moyen;
     }
 
-    // ✅ okay
+    /**
+     * Calcul de moyenne, stream
+     *
+     * @param tableau un tableau d'entiers
+     * @return un nombre réel correspondant à la moyenne, the float
+     */
+// ✅ okay
     public static float moyenne1(int[] tableau) {
         return (float) Arrays.stream(tableau).average().orElse(0.0);
     }
 
-    // 5.7
+    /**
+     * Manipulation de tableau d'entiers et saisie utilisateur
+     *
+     * @param scanner  un nombre d'entiers qu'il veut saisir, the scanner
+     */
+// 5.7
     // ✅ okay
     public static void manipTabl(Scanner scanner) {
         try {
@@ -465,7 +616,13 @@ public class Main {
         }
     }
 
-    // 5.8
+    /**
+     * Inversion de tableau
+     *
+     * @param tableau un tableau d'entiers
+     * @return un tableau d'entiers inversé par rapport à celui en entrée, the int [ ]
+     */
+// 5.8
     // ✅ okay
     public static int[] invert(int[] tableau) {
         if (tableau.length == 0) {
@@ -479,7 +636,17 @@ public class Main {
         return tableaunew;
     }
 
-    // 6.1
+    /**
+     * Somme des valeurs d'un tableau
+     *
+     * Additionner toutes les valeurs entières d'un tableau 2D.
+     *
+     * @param tableau the tableau
+     * @param width   the width
+     * @param height  the height
+     * @return the int
+     */
+// 6.1
     // ✅ okay
     public static int som2Dtableau(int[][] tableau, int width, int height) {
         int sum = 0;
@@ -491,7 +658,16 @@ public class Main {
         return sum;
     }
 
-    // 6.2
+    /**
+     * Somme des valeurs d'un tableau sur une diagonale
+     *
+     * @param tableau      the tableau
+     * @param width        the width
+     * @param height       the height
+     * @param diagonalType left or right, the diagonal type
+     * @return the int
+     */
+// 6.2
     public static int sumMatrixDiag(int[][] tableau, int width, int height, int diagonalType) {
         int sum = 0;
         if (tableau.length > 0 && tableau[0].length == tableau.length) {
@@ -510,7 +686,12 @@ public class Main {
 
     }
 
-    // 7
+    /**
+     * Affichage d'un triangle de caractères, type 1
+     *
+     * @param scanner rows, the scanner
+     */
+// 7
     // ✅ okay
     public static void triangChar1(Scanner scanner) {
         int n = scanner.nextInt();
@@ -522,7 +703,12 @@ public class Main {
         }
     }
 
-    // ✅ okay
+    /**
+     * Affichage d'un triangle de caractères, type 2
+     *
+     * @param scanner rows, the scanner
+     */
+// ✅ okay
     public static void triangChar2(Scanner scanner) {
         int n = scanner.nextInt();
         int i = 1;
@@ -542,7 +728,16 @@ public class Main {
         }
     }
 
-    // 8
+    /**
+     * Jeu du plus ou moins
+     *
+     * Écrire un algorithme permettant de simuler le jeu du "plus ou moins". L'utilisateur•ice doit découvrir un entier secret tiré aléatoirement entre 1 et 100.
+     *
+     * @param scanner guess the number, the scanner
+     * @param k       amount of tries
+     * @return won or lost, the boolean
+     */
+// 8
     // ✅ okay
     public static boolean plusouMois1(Scanner scanner, int k) {
         boolean res = false;
@@ -601,7 +796,14 @@ public class Main {
         return res;
     }
 
-    // TODO ajouter un "return" booléen pour satisfaire le compilateur
+    /**
+     * Array of random numbers in random positions
+     *
+     * @param scanner the scanner
+     * @param k       the k
+     * @return the boolean
+     */
+
     public static boolean plusouMois2(Scanner scanner, int k) {
         boolean res = false;
         int[] tableau = new int[100];
@@ -628,6 +830,7 @@ public class Main {
         int d = 1;
         // upper boundary
         int u = tableau.length;
+        return true;
         /*
          * do {
          * System.out.printf("%u essais restant, entrez votre entier entre 1 et 100 :",
@@ -667,11 +870,11 @@ public class Main {
          * // tableau = Arrays.stream(tableau).skip(tableau.length/2).toArray();
          * }
          * }
-         * 
+         *
          * } catch (IllegalArgumentException e) {
          * System.out.println("Out of boundaries");
          * }
-         * 
+         *
          * f++;
          * } while (k == f);
          * System.out.println("Out of tries");
@@ -679,7 +882,13 @@ public class Main {
          */
     }
 
-    // 9.1
+    /**
+     * Décompte des voyelles int.
+     *
+     * @param selcharacters une chaîne de caractères de taille supérieure à 1, Ensemble des voyelles à comptabiliser : a,e,i,o,u,y
+     * @return le nombre de voyelles composant la chaîne, the int
+     */
+// 9.1
     public static int decomptVoy(char[] selcharacters) {
         String message = "Écrire une fonction permettant de compter les voyelles dans une chaîne de caractères";
         int count = 0;

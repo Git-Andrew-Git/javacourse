@@ -3,8 +3,19 @@ package fr.javacourse;
 //9.5
 import java.io.IOException;
 
+/**
+ * Transformation en camelCase
+ */
 public class TransfCamel_9_5 {
-    // ✅ okay
+    /**
+     * Transformation en camelCase, string.
+     *
+     * Écrire un algorithme qui transforme une phrase composée d'espaces et de ponctuation en une version camelCase.
+     *
+     * @param text  the text
+     * @return the string
+     */
+// ✅ okay
     public static String transfCamel(String text) {
         String newtext = "";
         try {
