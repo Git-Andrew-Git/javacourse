@@ -19,7 +19,7 @@ public class VerifiePalindrome {
     public static String exclureSignes(String tableau){
         String textCorrige = "";
         int count = 0;
-        StringBuilder newchar = new StringBuilder(tableau)
+        StringBuilder newchar = new StringBuilder(tableau);
         for (int i = 0; i < tableau.length(); i++) {
             if (Character.isLetter(tableau.charAt(i))) {
                 char ch = tableau.charAt(i);
