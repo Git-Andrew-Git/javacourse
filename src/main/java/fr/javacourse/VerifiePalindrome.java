@@ -11,7 +11,7 @@ public class VerifiePalindrome {
 
 
     /**
-     * Exclure signes string.
+     * Exclure signes string1.
      *
      * @param tableau the tableau
      * @return the string
