@@ -1,7 +1,7 @@
 package fr.javacourse;
 
 import java.util.ArrayList;
-
+//15.1
 /**
  * The type Somme elements tableau.
  */

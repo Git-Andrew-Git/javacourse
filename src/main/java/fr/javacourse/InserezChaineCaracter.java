@@ -1,5 +1,5 @@
 package fr.javacourse;
-
+//15.2?
 /**
  * The type Inserez chaine caracter.
  */

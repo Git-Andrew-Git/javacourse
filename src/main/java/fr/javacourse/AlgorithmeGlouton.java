@@ -1,5 +1,5 @@
 package fr.javacourse;
-
+//14
 /**
  * The type Algorithme glouton.
  */

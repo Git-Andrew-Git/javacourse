@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class VerifiePalindrome {
 
-
+//12
     /**
      * Exclure signes string.
      *
