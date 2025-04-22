@@ -2,7 +2,17 @@ package fr.javacourse;
 
 import java.util.ArrayList;
 
+/**
+ * The type Somme elements tableau.
+ */
 public class SommeElementsTableau {
+    /**
+     * Somme elements tableau int.
+     *
+     * @param tableau the tableau
+     * @param indice  the indice
+     * @return the int
+     */
     public static int sommeElementsTableau(ArrayList<Integer> tableau, int indice){
         if (indice >= tableau.size()) return 0;
 

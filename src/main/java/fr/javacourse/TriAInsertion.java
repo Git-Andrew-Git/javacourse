@@ -1,6 +1,15 @@
 package fr.javacourse;
 
+/**
+ * The type Tri a insertion.
+ */
 public class TriAInsertion {
+    /**
+     * Insertion sort object [ ].
+     *
+     * @param tableau the tableau
+     * @return the object [ ]
+     */
     public static Object[] insertionSort(int[] tableau) {
         int counter = 0;
         for (int i = 1; i < tableau.length; i++) {

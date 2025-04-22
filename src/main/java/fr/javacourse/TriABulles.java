@@ -3,7 +3,16 @@ package fr.javacourse;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Tri a bulles.
+ */
 public class TriABulles {
+    /**
+     * Tri a bulles map.
+     *
+     * @param tableau the tableau
+     * @return the map
+     */
     public static Map<int[], Integer> triABulles(int[] tableau) {
 
         int swaps = 0;
