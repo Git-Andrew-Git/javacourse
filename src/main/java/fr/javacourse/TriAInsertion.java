@@ -3,18 +3,50 @@ package fr.javacourse;
 public class TriAInsertion {
     public static Object[] triAInsertion(int[] tableau){
         int[] newtableau = new int[tableau.length];
-        int counter;
+        int counter = 0;
         boolean indicateur;
-        do {
-            indicateur = false;
+
             for (int i = 0; i < tableau.length; i++) {
-                for (int j = 0; j < i; j++) {
-                    if (tableau[i] <= newtableau[j]) {
+                indicateur = true;
+                int j = i;
+                do {
+                    if (i == 0) {
+                        System.arraycopy(tableau, i, newtableau, j, 1);
+                        counter++;
+                        indicateur = false;
+                    } else {
+                        while (j > 0){
+
+
+
+                                j--;
+                                if (tableau[i] >= newtableau[j]) {
+                                    System.arraycopy(tableau, i, newtableau, j+1, 1);
+                                    counter++;
+                                    indicateur = false;
+                                }
+                                if (j == 0) {
+                                    if (tableau[i] >= newtableau[j]) {
+                                        System.arraycopy(tableau, i, newtableau, j+1, 1);
+                                        counter++;
+                                        indicateur = false;
+
+                                    } else {
+                                        System.arraycopy(tableau, i, newtableau, j, 1);
+                                        counter++;
+                                        indicateur = false;
+                                    }
+                                }
+                            }
 
                     }
-//                    System.arraycopy(tableau, i, newtableau, );
-                }
+
+
+                } while (indicateur);
+
+
             }
-        } while (indicateur);
+
+        return new Object[] {newtableau, counter};
     }
 }
