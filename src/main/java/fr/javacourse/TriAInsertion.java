@@ -23,7 +23,7 @@ public class TriAInsertion {
             tableau[j + 1] = key;
             counter++;
         }
-        return new Object[]{tableau, };
+        return new Object[]{tableau, counter};
     }
 
 //    public static Object[] triAInsertion(int[] tableau){
