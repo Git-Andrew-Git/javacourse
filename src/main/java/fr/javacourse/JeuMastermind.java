@@ -20,6 +20,9 @@ public class JeuMastermind {
                     throw new IllegalArgumentException("the number is not in between 0 and 7");
                 }
             }
+                if (!(propositionUtilisateur.size() == combinaisonCachee.size())) {
+                    throw new IOException();
+                }
             System.out.print("Essaiez de deviner la combinaison cachée en proposant vos " + quantiteEssaie + " proposition");
             do {
                 System.out.println("Entré 4 chiffres pour deviner la combinaison cachée: ");
@@ -55,6 +58,8 @@ public class JeuMastermind {
             System.out.println("Is not a number");
         } catch (IllegalArgumentException e){
             System.out.println("the number is not in between 0 and 7");
+        } catch (Exception e) {
+            System.out.println("the quantity of numbers inserted must be 4");
         }
         return result;
     }

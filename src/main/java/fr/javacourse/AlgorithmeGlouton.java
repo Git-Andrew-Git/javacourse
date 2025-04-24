@@ -11,6 +11,7 @@ public class AlgorithmeGlouton {
      * @return the int [ ]
      */
     public static int[] algorithmeGlouton(int rendu){
+        if (rendu <= 0) return new int[]{0, 0, 0, 0, 0, 0, 0, 0};
         int[] typeRendu = {0, 0, 0, 0, 0, 0, 0, 0};
         int[] typeRenduExample = {200, 100, 50, 20, 10, 5, 2, 1};
 

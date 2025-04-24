@@ -13,15 +13,18 @@ public class AlgorithmeLuhn {
      * @return the boolean
      */
     public static boolean algorithmeLuhn(ArrayList<Integer> cardNumber){
+        if (cardNumber == null || cardNumber.isEmpty()) {
+            return false;
+        }
         boolean resultat = false;
         int somme = 0;
         int temperaire;
-        for (int i = cardNumber.size(); i > 0; i-=2) {
+        for (int i = cardNumber.size()-2; i >= 0; i-=2) {
             temperaire = cardNumber.get(i);
             temperaire *= 2;
-            if (temperaire > 10) {
-                temperaire-=10;
-                temperaire+=1;
+            if (temperaire >= 10) {
+                temperaire-=9;
+
             }
             cardNumber.set(i, temperaire);
         }
@@ -30,7 +33,7 @@ public class AlgorithmeLuhn {
         }
         if(somme%10 == 0){
             resultat = true;
-            return resultat;
+
         }
         return resultat;
 

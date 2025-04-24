@@ -98,6 +98,75 @@ public class MainTest {
     }
 
 
+    @Test
+    void rechSeq1() {
+    }
 
+    @Test
+    void rechSeq2() {
+    }
 
+    @Test
+    void rechSeq3() {
+    }
+
+    @Test
+    void somEntre1() {
+    }
+
+    @Test
+    void somEntre2() {
+    }
+
+    @Test
+    void indDanTab1() {
+    }
+
+    @Test
+    void echanVal() {
+    }
+
+    @Test
+    void moyenne() {
+    }
+
+    @Test
+    void moyenne1() {
+    }
+
+    @Test
+    void manipTabl() {
+    }
+
+    @Test
+    void invert() {
+    }
+
+    @Test
+    void som2Dtableau() {
+    }
+
+    @Test
+    void sumMatrixDiag() {
+    }
+
+    @Test
+    void triangChar1() {
+    }
+
+    @Test
+    void triangChar2() {
+    }
+
+    @Test
+    void plusouMois1() {
+    }
+
+    @Test
+    void plusouMois2() {
+    }
+
+    @Test
+    void decomptVoy() {
+    }
 }
