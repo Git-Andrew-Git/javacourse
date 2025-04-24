@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AlgorithmeLuhnTest {
 
-    // Tests for specific cases provided
+
     @Test
     public void testCorrectCardNumber1() {
         ArrayList<Integer> cardNumber = new ArrayList<>(Arrays.asList(4,2,6,3,9,8,2,6,4,0,2,6,9,2,9,9));
@@ -44,7 +44,7 @@ public class AlgorithmeLuhnTest {
         assertFalse(AlgorithmeLuhn.algorithmeLuhn(cardNumber));
     }
 
-    // Full coverage tests
+
     @Test
     public void testEmptyCardNumber() {
         ArrayList<Integer> cardNumber = new ArrayList<>();
@@ -82,7 +82,7 @@ public class AlgorithmeLuhnTest {
         assertFalse(AlgorithmeLuhn.algorithmeLuhn(cardNumber));
     }
 
-//testMaximumSingleDigitAfterMultiplication est 9, est imposssible
+//testMaximumSingleDigitAfterMultiplication est 9, est impossible
 
 
     @Test
