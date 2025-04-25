@@ -2,7 +2,7 @@ package fr.javacourse;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+//
 public class BinomesStagiaires {
     public static ArrayList<Integer> binomesStagiaires(String[] learnerNames) {
         Random r = new Random();

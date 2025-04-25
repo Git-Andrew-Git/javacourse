@@ -15,10 +15,14 @@ public class BintoDix_10_1 {
     public static int bittoDix(String bin){
         int res = 0;
         try{
+
         int j = 0;
-        for (int i = bin.length(); i > 0; i--) {
+        for (int i = bin.length()-1; i >= 0; i--) {
             if (Character.isDigit(bin.charAt(i))) {
-                res += Character.getNumericValue(bin.charAt(i))*(1 << j);
+                if ((Character.getNumericValue(bin.charAt(i)) > 1 || Character.getNumericValue(bin.charAt(i))<0)) {
+                    throw new IOException("Wrong input");
+                }
+                res += Character.getNumericValue(bin.charAt(i))*(Math.pow(2, j));
                 j++;
             } else if (!Character.isDigit(bin.charAt(i))) {
                 throw new IOException("Wrong input");
